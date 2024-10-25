@@ -10,16 +10,13 @@
         "context": ".."
     },
     "settings": {
-        "python.defaultInterpreterPath": "/home/vscode/venv/bin/python"
+        "python.defaultInterpreterPath": "/workspaces/python_devcontainer_template/.venv/bin/python"
     },
     "extensions": [
-        // Python extension for rich language support
         "ms-python.python",
-        // Pylance extension for improved language features
         "ms-python.vscode-pylance"
     ],
     // Command to create virtual environment and install dependencies
-    "postCreateCommand": "python3 -m venv /home/vscode/venv && /home/vscode/venv/bin/pip install -r requirements.txt",
-    // Use the non-root user 'vscode' for better security
+    "postCreateCommand": "python3 -m venv /workspaces/python_devcontainer_template/.venv && /workspaces/python_devcontainer_template/.venv/bin/pip install -r requirements.txt",
     "remoteUser": "vscode"
 }
