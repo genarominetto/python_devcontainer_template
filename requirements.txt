@@ -1,0 +1,5 @@
+# requirements.txt
+# This file lists all Python dependencies required for the project.
+
+boto3
+requests

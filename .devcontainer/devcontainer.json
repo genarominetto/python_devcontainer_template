@@ -1,14 +1,25 @@
+// .devcontainer/devcontainer.json
+// This file configures the DevContainer for VS Code.
+// It specifies the Dockerfile to build the container, extensions to install,
+// and commands to run after the container is created.
+
 {
-    "name": "Python Dev Container",
+    "name": "Python DevContainer",
     "build": {
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Dockerfile",
+        "context": ".."
+    },
+    "settings": {
+        "python.defaultInterpreterPath": "/home/vscode/venv/bin/python"
     },
     "extensions": [
-        "ms-python.python"
+        // Python extension for rich language support
+        "ms-python.python",
+        // Pylance extension for improved language features
+        "ms-python.vscode-pylance"
     ],
-    "settings": {
-        "python.pythonPath": "/usr/local/bin/python",
-        "terminal.integrated.shell.linux": "/bin/bash"
-    },
-    "postCreateCommand": "pip install --upgrade pip"
+    // Command to create virtual environment and install dependencies
+    "postCreateCommand": "python3 -m venv /home/vscode/venv && /home/vscode/venv/bin/pip install -r requirements.txt",
+    // Use the non-root user 'vscode' for better security
+    "remoteUser": "vscode"
 }
